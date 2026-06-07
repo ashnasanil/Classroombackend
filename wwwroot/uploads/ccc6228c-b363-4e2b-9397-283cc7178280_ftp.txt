@@ -1,0 +1,37 @@
+scp: Connection closed
+ashnasanil@NTP-LAP-621:~/backup$ sudo service ssh statuys
+[sudo: authenticate] Password:
+
+ashnasanil@NTP-LAP-621:~/backup$ sudo service ssh status
+[sudo: authenticate] Password:
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-06-02 15:20:46 IST; 1h 31min ago
+ Invocation: 77b0be2961744e3b8e73909ed303e0d0
+TriggeredBy: ● ssh.socket
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+   Main PID: 7292 (sshd)
+      Tasks: 1 (limit: 9365)
+     Memory: 1.2M (peak: 2.3M)
+        CPU: 21ms
+     CGroup: /system.slice/ssh.service
+             └─7292 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+Jun 02 15:20:46 NTP-LAP-621 systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+Jun 02 15:20:46 NTP-LAP-621 sshd[7292]: Server listening on 0.0.0.0 port 22.
+Jun 02 15:20:46 NTP-LAP-621 sshd[7292]: Server listening on :: port 22.
+Jun 02 15:20:46 NTP-LAP-621 systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+ashnasanil@NTP-LAP-621:~/backup$ scp -P 2222 companydb_2026-06-02_15-00-01.sql anoopk@10.207.105.203:~
+scp: stat local "companydb_2026-06-02_15-00-01.sql": No such file or directory
+ashnasanil@NTP-LAP-621:~/backup$ ls
+backup.txt  backup_1.txt  backup_2.txt  backup_3.txt  backup_4.txt  backup_5.txt  demo.txt  deo.txt  hello.txt  hello1.txt  task1.sh  world.txt
+ashnasanil@NTP-LAP-621:~/backup$ scp -P 2222 hello.txt anoopk@10.207.105.203:~
+The authenticity of host '[10.207.105.203]:2222 ([10.207.105.203]:2222)' can't be established.
+ED25519 key fingerprint is: SHA256:fe1Zcloubt3lj1JvCdomUy2ksx/iB4pm4gP67dkugQo
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[10.207.105.203]:2222' (ED25519) to the list of known hosts.
+anoopk@10.207.105.203's password:
+hello.txt                                                                                                                 100%   12     1.3KB/s   00:00
+ashnasanil@NTP-LAP-621:~/backup$

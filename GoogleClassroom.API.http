@@ -1,0 +1,6 @@
+@GoogleClassroom.API_HostAddress = http://localhost:5075
+
+GET {{GoogleClassroom.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

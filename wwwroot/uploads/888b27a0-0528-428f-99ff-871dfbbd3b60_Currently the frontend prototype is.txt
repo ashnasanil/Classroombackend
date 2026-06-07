@@ -1,0 +1,12 @@
+Currently the frontend prototype is completed using Angular and Bootstrap.
+
+The portal supports:
+
+- Candidate and company roles
+- Role-based navigation
+- Internship posting UI
+- Internship browsing
+- Eligibility criteria section
+- Application review interface
+
+Backend integration, authentication APIs, database connectivity, OTP/email verification, and dynamic data handling will be implemented in the next phase.

@@ -1,0 +1,77 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\12dec1e6-c7ce-420a-915c-6322b22e01d4_#Pixel@4545@.txt",
+      "PackagePath": "staticwebassets\\uploads\\12dec1e6-c7ce-420a-915c-6322b22e01d4_#Pixel@4545@.txt"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\1ab00d5f-39b5-4bea-bb58-e75495b44b64_#Pixel@4545@.txt",
+      "PackagePath": "staticwebassets\\uploads\\1ab00d5f-39b5-4bea-bb58-e75495b44b64_#Pixel@4545@.txt"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\356e300a-2376-41fd-a9a4-be03163ba480_Dictionary word and count.docx",
+      "PackagePath": "staticwebassets\\uploads\\356e300a-2376-41fd-a9a4-be03163ba480_Dictionary word and count.docx"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\4c6b8416-fc2f-48c9-ba42-821bee3ce1a2_2 class.txt",
+      "PackagePath": "staticwebassets\\uploads\\4c6b8416-fc2f-48c9-ba42-821bee3ce1a2_2 class.txt"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\4f4f10ff-89a1-4d26-9bc8-2ebd09c3266b_day one-dotnet.docx",
+      "PackagePath": "staticwebassets\\uploads\\4f4f10ff-89a1-4d26-9bc8-2ebd09c3266b_day one-dotnet.docx"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\75e17f02-b1df-4f03-9aa6-6400d84d3d0f_NeST Principle Badge.pdf",
+      "PackagePath": "staticwebassets\\uploads\\75e17f02-b1df-4f03-9aa6-6400d84d3d0f_NeST Principle Badge.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\888b27a0-0528-428f-99ff-871dfbbd3b60_Currently the frontend prototype is.txt",
+      "PackagePath": "staticwebassets\\uploads\\888b27a0-0528-428f-99ff-871dfbbd3b60_Currently the frontend prototype is.txt"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\8fee3175-eedd-497f-a8a1-095a2be5be06_Currently the frontend prototype is.txt",
+      "PackagePath": "staticwebassets\\uploads\\8fee3175-eedd-497f-a8a1-095a2be5be06_Currently the frontend prototype is.txt"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\b08624ab-bb36-42d5-ac87-a0ce83077115_2 class.txt",
+      "PackagePath": "staticwebassets\\uploads\\b08624ab-bb36-42d5-ac87-a0ce83077115_2 class.txt"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\ccc6228c-b363-4e2b-9397-283cc7178280_ftp.txt",
+      "PackagePath": "staticwebassets\\uploads\\ccc6228c-b363-4e2b-9397-283cc7178280_ftp.txt"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\ccf3a00f-b5d8-4b76-8484-deab46a22f87_2 class.txt",
+      "PackagePath": "staticwebassets\\uploads\\ccf3a00f-b5d8-4b76-8484-deab46a22f87_2 class.txt"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\d14e093e-714b-4555-8130-0e753a86bd8d_Dictionary word and count.docx",
+      "PackagePath": "staticwebassets\\uploads\\d14e093e-714b-4555-8130-0e753a86bd8d_Dictionary word and count.docx"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\d7071b7c-f9dc-447f-b45c-430090ad0844_#Pixel@4545@.txt",
+      "PackagePath": "staticwebassets\\uploads\\d7071b7c-f9dc-447f-b45c-430090ad0844_#Pixel@4545@.txt"
+    },
+    {
+      "Id": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\f2393dc2-5a69-4d31-8f42-7c541b254ffc_2 class.txt",
+      "PackagePath": "staticwebassets\\uploads\\f2393dc2-5a69-4d31-8f42-7c541b254ffc_2 class.txt"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GoogleClassroom.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.GoogleClassroom.API.props",
+      "PackagePath": "build\\GoogleClassroom.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.GoogleClassroom.API.props",
+      "PackagePath": "buildMultiTargeting\\GoogleClassroom.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.GoogleClassroom.API.props",
+      "PackagePath": "buildTransitive\\GoogleClassroom.API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
