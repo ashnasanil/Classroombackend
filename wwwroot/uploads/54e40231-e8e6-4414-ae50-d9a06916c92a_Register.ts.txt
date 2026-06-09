@@ -1,0 +1,70 @@
+Register.ts
+
+import { Component, inject } from '@angular/core';
+
+import { FormsModule } from '@angular/forms';
+
+import { Router, RouterLink } from '@angular/router';
+
+import { Navbar } from '../navbar/navbar';
+
+import { ApiServices } from '../../services/api-services';
+
+@Component({
+  selector: 'app-register',
+
+  imports: [RouterLink, FormsModule, Navbar],
+
+  templateUrl: './register.html',
+
+  styleUrl: './register.css'
+})
+
+export class Register {
+
+  user = {
+
+    name: "",
+
+    email: "",
+
+    password: ""
+
+  }
+
+  service = inject(ApiServices)
+
+  router = inject(Router)
+
+  submitForm = () => {
+
+    console.log(this.user);
+
+    this.service.getUser(this.user)
+    .subscribe({
+
+      next:(res:any)=>{
+
+        console.log("SUCCESS", res);
+
+        // GO TO LOGIN PAGE
+
+        this.router.navigate(['/']);
+
+      },
+
+      error:(err)=>{
+
+        console.log("ERROR", err);
+
+        console.log(err.error);
+
+        alert(err.error.message);
+
+      }
+
+    })
+
+  }
+
+}

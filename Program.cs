@@ -114,15 +114,30 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    try
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    var retryCount = 5;
+    var currentRetry = 0;
+    var delay = TimeSpan.FromSeconds(5);
+    
+    while (currentRetry < retryCount)
     {
-        var context = services.GetRequiredService<ApplicationDbContext>();
-        context.Database.Migrate();
-    }
-    catch (Exception ex)
-    {
-        var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "An error occurred while migrating the database.");
+        try
+        {
+            var context = services.GetRequiredService<ApplicationDbContext>();
+            context.Database.Migrate();
+            logger.LogInformation("Database migration completed successfully.");
+            break;
+        }
+        catch (Exception ex)
+        {
+            currentRetry++;
+            logger.LogWarning(ex, $"An error occurred while migrating the database. Retrying... ({currentRetry}/{retryCount})");
+            if (currentRetry == retryCount)
+            {
+                logger.LogError(ex, "Failed to migrate the database after multiple retries.");
+            }
+            Thread.Sleep(delay);
+        }
     }
 }
 

@@ -117,3 +117,4 @@ C:\Users\Ashna.Sanil\.gemini\antigravity-ide\scratch\GoogleClassroom\Backend\obj
 C:\Users\Ashna.Sanil\.gemini\antigravity-ide\scratch\GoogleClassroom\Backend\obj\Debug\net8.0\GoogleClassroom.API.pdb
 C:\Users\Ashna.Sanil\.gemini\antigravity-ide\scratch\GoogleClassroom\Backend\obj\Debug\net8.0\GoogleClassroom.API.genruntimeconfig.cache
 C:\Users\Ashna.Sanil\.gemini\antigravity-ide\scratch\GoogleClassroom\Backend\obj\Debug\net8.0\ref\GoogleClassroom.API.dll
+C:\Users\Ashna.Sanil\.gemini\antigravity-ide\scratch\GoogleClassroom\Backend\obj\Debug\net8.0\GoogleClassroom.API.sourcelink.json

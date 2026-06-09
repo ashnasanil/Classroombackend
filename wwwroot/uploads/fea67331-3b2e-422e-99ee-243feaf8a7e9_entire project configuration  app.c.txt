@@ -1,0 +1,32 @@
+entire project configuration : app.config.ts
+loading:app.ts
+component creation:ng g c components/name
+inside component 4 files: css,ts,html,spec(testing)
+ng test-testing
+
+CHECK OUT bootstrap grid -entire screen divided into 12 equal columns
+Grid options 
+Bootstrap’s grid system can adapt across all six default breakpoints, and any breakpoints you customize. The six default grid tiers are as follows:
+
+Extra small (xs)
+Small (sm)
+Medium (md)
+Large (lg)
+Extra large (xl)
+Extra extra large (xxl)
+As noted above, each of these breakpoints have their own container, unique class prefix, and modifiers. Here’s how the grid changes across these breakpoints:
+
+xs
+<576px	sm
+≥576px	md
+≥768px	lg
+≥992px	xl
+≥1200px	xxl
+≥1400px
+Container max-width	None (auto)	540px	720px	960px	1140px	1320px
+Class prefix	.col-	.col-sm-	.col-md-	.col-lg-	.col-xl-	.col-xxl
+
+.hello gives div class=hello
+.hello>.main will give be integrated within hello
+for multiple p tag use p*multiple
+div.hello = .hello
