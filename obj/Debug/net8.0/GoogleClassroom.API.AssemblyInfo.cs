@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GoogleClassroom.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39223320202778639e530dadf045f44225ee88a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08914258b723921d1763fdaceaa0cca1a2296d70")]
 [assembly: System.Reflection.AssemblyProductAttribute("GoogleClassroom.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GoogleClassroom.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
