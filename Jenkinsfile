@@ -80,7 +80,7 @@ pipeline {
                     -e JWT_ACCESS_TOKEN_MINUTES=60 ^
                     -e JWT_REFRESH_TOKEN_DAYS=30 ^
                     -e MEDIA_BASE_URL=/media ^
-                    -p 5095:8080 ^
+                    -p 5080:8080 ^
                     -v api-media:/app/SimpleStorage ^
                     %IMAGE%
                 """

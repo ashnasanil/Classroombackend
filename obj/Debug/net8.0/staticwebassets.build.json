@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "peIXUUpYYGpBVMTdhltlGAucHw0aHO38GdDeqWnLWIQ=",
+  "Hash": "tC7j0q6V8Y4rFuayzLB2e6cEz8sRg639LS67l6QMmxA=",
   "Source": "GoogleClassroom.API",
   "BasePath": "_content/GoogleClassroom.API",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\4f4f10ff-89a1-4d26-9bc8-2ebd09c3266b_day one-dotnet.docx"
+    },
+    {
+      "Identity": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\54e40231-e8e6-4414-ae50-d9a06916c92a_Register.ts.txt",
+      "SourceId": "GoogleClassroom.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\",
+      "BasePath": "_content/GoogleClassroom.API",
+      "RelativePath": "uploads/54e40231-e8e6-4414-ae50-d9a06916c92a_Register.ts.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\54e40231-e8e6-4414-ae50-d9a06916c92a_Register.ts.txt"
     },
     {
       "Identity": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\75e17f02-b1df-4f03-9aa6-6400d84d3d0f_NeST Principle Badge.pdf",
@@ -281,6 +300,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\f2393dc2-5a69-4d31-8f42-7c541b254ffc_2 class.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\uploads\\fea67331-3b2e-422e-99ee-243feaf8a7e9_entire project configuration  app.c.txt",
+      "SourceId": "GoogleClassroom.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ashna.Sanil\\.gemini\\antigravity-ide\\scratch\\GoogleClassroom\\Backend\\wwwroot\\",
+      "BasePath": "_content/GoogleClassroom.API",
+      "RelativePath": "uploads/fea67331-3b2e-422e-99ee-243feaf8a7e9_entire project configuration  app.c.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\fea67331-3b2e-422e-99ee-243feaf8a7e9_entire project configuration  app.c.txt"
     }
   ]
 }
