@@ -4,8 +4,8 @@ pipeline {
  
     environment {
         IMAGE = "google-classroom-api-jenkins:${BUILD_NUMBER}"
-        NETWORK = "google-classroom-jenkins-net"
-        MYSQL_CONT = "google-classroom-mysql-jenkins"
+        NETWORK = "googleclassroom_default"
+        MYSQL_CONT = "google-classroom-db"
         API_CONT = "google-classroom-api-jenkins"
  
         MYSQL_PWD = "root"
@@ -23,45 +23,6 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 bat "docker build -t %IMAGE% ."
-            }
-        }
- 
-        stage('Create Network') {
-            steps {
-                bat "docker network inspect %NETWORK% >nul 2>&1 || docker network create %NETWORK%"
-            }
-        }
- 
-        stage('Start MySQL') {
-            steps {
-                bat """
-                docker rm -f %MYSQL_CONT% 2>nul
- 
-                docker run -d --name %MYSQL_CONT% --network %NETWORK% ^
-                    -e MYSQL_ROOT_PASSWORD=%MYSQL_PWD% ^
-                    -e MYSQL_DATABASE=%MYSQL_DB% ^
-                    -p 3312:3306 ^
-                    -v google-classroom-mysql-data-jenkins:/var/lib/mysql ^
-                    mysql:8.0
-                """
-            }
-        }
- 
-        stage('Wait for MySQL (HEALTHCHECK equivalent)') {
-            steps {
-                bat """
-                echo Waiting for MySQL to be ready...
- 
-                :loop
-                docker exec %MYSQL_CONT% mysqladmin ping -h localhost -uroot -p%MYSQL_PWD% >nul 2>&1
- 
-                IF ERRORLEVEL 1 (
-                    timeout /t 5 >nul
-                    goto loop
-                )
- 
-                echo MySQL is ready!
-                """
             }
         }
  
