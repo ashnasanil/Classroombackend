@@ -1,51 +1,99 @@
 pipeline {
- 
+
     agent any
- 
+
     environment {
-        IMAGE = "google-classroom-api-jenkins:${BUILD_NUMBER}"
-        NETWORK = "googleclassroom_default"
-        MYSQL_CONT = "google-classroom-db"
-        API_CONT = "google-classroom-api-jenkins"
- 
-        MYSQL_PWD = "root"
-        MYSQL_DB = "GoogleClassroomDb"
+
+        ACR     = 'ashnaacr'
+
+        RG      = 'fullstack-rg'
+
+        AKS     = 'fullstack-aks'
+
+        IMAGE   = 'google-classroom-backend'
+
+        AZ_CLIENT_ID     = credentials('azure-client-id')
+
+        AZ_CLIENT_SECRET = credentials('azure-client-secret')
+
+        AZ_TENANT_ID     = credentials('azure-tenant-id')
+
     }
- 
+
     stages {
- 
+
         stage('Checkout') {
-            steps {
-                checkout scm
-            }
+
+            steps { checkout scm }
+
         }
- 
-        stage('Build Docker Image') {
+
+        stage('Build image') {
+
             steps {
-                bat "docker build -t %IMAGE% ."
+
+                bat 'docker build --platform linux/amd64 -t %ACR%.azurecr.io/%IMAGE%:%BUILD_NUMBER% -t %ACR%.azurecr.io/%IMAGE%:latest .'
+
             }
+
         }
- 
-        stage('Run API') {
+
+        stage('Login to Azure') {
+
             steps {
-                bat """
-                docker rm -f %API_CONT% 2>nul
- 
-                docker run -d --name %API_CONT% --network %NETWORK% ^
-                    -e ASPNETCORE_ENVIRONMENT=Development ^
-                    -e ASPNETCORE_URLS=http://+:8080 ^
-                    -e ConnectionStrings__DefaultConnection="Server=%MYSQL_CONT%;Port=3306;Database=%MYSQL_DB%;User=root;Password=%MYSQL_PWD%;" ^
-                    -e JwtSettings__Issuer=GoogleClassroomAPI ^
-                    -e JwtSettings__Audience=GoogleClassroomUsers ^
-                    -e JwtSettings__Secret=super_secret_key_that_should_be_long_enough_for_hmacsha256 ^
-                    -e JwtSettings__AccessTokenExpirationMinutes=60 ^
-                    -e JwtSettings__RefreshTokenExpirationDays=7 ^
-                    -p 5086:8080 ^
-                    -v google-classroom-api-media-jenkins:/app/SimpleStorage ^
-                    %IMAGE%
-                """
+
+                bat 'az login --service-principal -u %AZ_CLIENT_ID% -p %AZ_CLIENT_SECRET% --tenant %AZ_TENANT_ID%'
+
+                bat 'az acr login -n %ACR%'
+
             }
+
         }
- 
+
+        stage('Push to ACR') {
+
+            steps {
+
+                bat 'docker push %ACR%.azurecr.io/%IMAGE%:%BUILD_NUMBER%'
+
+                bat 'docker push %ACR%.azurecr.io/%IMAGE%:latest'
+
+            }
+
+        }
+
+        stage('Deploy to AKS') {
+
+            steps {
+
+                bat 'az aks get-credentials -n %AKS% -g %RG% --overwrite-existing'
+
+                powershell '(Get-Content k8s/02-api.yaml) -replace "<ACR_NAME>", $env:ACR | Set-Content $env:TEMP\\02-api.yaml'
+
+                bat 'kubectl apply -f k8s/01-mysql.yaml'
+
+                bat 'kubectl apply -f %TEMP%\\02-api.yaml'
+
+                bat 'kubectl set image deployment/google-classroom-backend backend=%ACR%.azurecr.io/%IMAGE%:%BUILD_NUMBER%'
+
+                bat 'kubectl rollout status deployment/google-classroom-backend --timeout=120s'
+
+            }
+
+        }
+
     }
+
+    post {
+
+        success { echo "product-api ${BUILD_NUMBER} deployed to AKS." }
+
+        failure { echo 'product-api pipeline failed.' }
+
+        always  { bat 'az logout || exit 0' }
+
+    }
+
 }
+
+ 

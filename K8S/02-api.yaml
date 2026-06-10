@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: fullstackacr.azurecr.io/google-classroom-backend:latest
+          image: <ACR_NAME>.azurecr.io/google-classroom-backend:latest
           env:
             - name: ConnectionStrings__DefaultConnection
               valueFrom:
