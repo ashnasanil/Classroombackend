@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backend-secret
+type: Opaque
+stringData:
+  connection-string: "Server=google-classroom-db;Port=3306;Database=GoogleClassroomDb;User=root;Password=root;"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: google-classroom-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: google-classroom-backend
+  template:
+    metadata:
+      labels:
+        app: google-classroom-backend
+    spec:
+      containers:
+        - name: backend
+          image: fullstackacr.azurecr.io/google-classroom-backend:latest
+          env:
+            - name: ConnectionStrings__DefaultConnection
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: connection-string
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /api/Classroom
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: google-classroom-backend
+spec:
+  selector:
+    app: google-classroom-backend
+  ports:
+    - port: 5000
+      targetPort: 8080

@@ -3,13 +3,13 @@ pipeline {
     agent any
  
     environment {
-        IMAGE = "classroom-api:${BUILD_NUMBER}"
-        NETWORK = "classroom-net"
-        MYSQL_CONT = "classroom-mysql"
-        API_CONT = "classroom-api"
+        IMAGE = "google-classroom-api-jenkins:${BUILD_NUMBER}"
+        NETWORK = "google-classroom-jenkins-net"
+        MYSQL_CONT = "google-classroom-mysql-jenkins"
+        API_CONT = "google-classroom-api-jenkins"
  
         MYSQL_PWD = "root"
-        MYSQL_DB = "classroom_db"
+        MYSQL_DB = "GoogleClassroomDb"
     }
  
     stages {
@@ -40,8 +40,8 @@ pipeline {
                 docker run -d --name %MYSQL_CONT% --network %NETWORK% ^
                     -e MYSQL_ROOT_PASSWORD=%MYSQL_PWD% ^
                     -e MYSQL_DATABASE=%MYSQL_DB% ^
-                    -p 3307:3306 ^
-                    -v mysql-data:/var/lib/mysql ^
+                    -p 3312:3306 ^
+                    -v google-classroom-mysql-data-jenkins:/var/lib/mysql ^
                     mysql:8.0
                 """
             }
@@ -73,15 +73,14 @@ pipeline {
                 docker run -d --name %API_CONT% --network %NETWORK% ^
                     -e ASPNETCORE_ENVIRONMENT=Development ^
                     -e ASPNETCORE_URLS=http://+:8080 ^
-                    -e MYSQL_CONNECTION_STRING="Server=%MYSQL_CONT%;Port=3306;Database=%MYSQL_DB%;User=root;Password=%MYSQL_PWD%;" ^
-                    -e JWT_ISSUER=linkedin-api ^
-                    -e JWT_AUDIENCE=linkedin-clone ^
-                    -e JWT_SECRET=change-this-development-secret-at-least-32-characters ^
-                    -e JWT_ACCESS_TOKEN_MINUTES=60 ^
-                    -e JWT_REFRESH_TOKEN_DAYS=30 ^
-                    -e MEDIA_BASE_URL=/media ^
-                    -p 5080:8080 ^
-                    -v api-media:/app/SimpleStorage ^
+                    -e ConnectionStrings__DefaultConnection="Server=%MYSQL_CONT%;Port=3306;Database=%MYSQL_DB%;User=root;Password=%MYSQL_PWD%;" ^
+                    -e JwtSettings__Issuer=GoogleClassroomAPI ^
+                    -e JwtSettings__Audience=GoogleClassroomUsers ^
+                    -e JwtSettings__Secret=super_secret_key_that_should_be_long_enough_for_hmacsha256 ^
+                    -e JwtSettings__AccessTokenExpirationMinutes=60 ^
+                    -e JwtSettings__RefreshTokenExpirationDays=7 ^
+                    -p 5086:8080 ^
+                    -v google-classroom-api-media-jenkins:/app/SimpleStorage ^
                     %IMAGE%
                 """
             }
@@ -89,5 +88,3 @@ pipeline {
  
     }
 }
- 
- 
